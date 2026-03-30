@@ -1,0 +1,143 @@
+﻿
+additional_maa_cap_from_domain_size = {
+	categories = { difficulty dynamic_maa_limit }
+	default = no_maa_per_domain_size
+	no_maa_per_domain_size = {}
+	hundredth_maa_per_domain_size = {}
+	fiftieth_maa_per_domain_size = {}
+	twenty_fifth_maa_per_domain_size = {}
+	twentieth_maa_per_domain_size = {}
+	sixteenth_maa_per_domain_size = {}
+	tenth_maa_per_domain_size = {}
+	eighth_maa_per_domain_size = {}
+	fifth_maa_per_domain_size = {}
+	quarter_maa_per_domain_size = {}
+	third_maa_per_domain_size = {}
+	half_maa_per_domain_size = {}
+	three_quarters_maa_per_domain_size = {}
+	one_maa_per_domain_size = {}
+	five_quarters_maa_per_domain_size = {}
+	three_halves_maa_per_domain_size = {}
+	two_maa_per_domain_size = {}
+	three_maa_per_domain_size = {}
+	four_maa_per_domain_size = {}
+	five_maa_per_domain_size = {}
+	ten_maa_per_domain_size = {}
+}
+
+additional_maa_cap_from_realm_size = {
+    categories = { difficulty dynamic_maa_limit }
+    default = twenty_fifth_maa_per_realm_size
+    no_maa_per_realm_size = {}
+    hundredth_maa_per_realm_size = {}
+    fiftieth_maa_per_realm_size = {}
+	twenty_fifth_maa_per_realm_size = {}
+    twentieth_maa_per_realm_size = {}
+	sixteenth_maa_per_realm_size = {}
+    tenth_maa_per_realm_size = {}
+	eighth_maa_per_realm_size = {}
+    fifth_maa_per_realm_size = {}
+    quarter_maa_per_realm_size = {}
+    third_maa_per_realm_size = {}
+    half_maa_per_realm_size = {}
+	three_quarters_maa_per_realm_size = {}
+    one_maa_per_realm_size = {}
+	five_quarters_maa_per_realm_size = {}
+	three_halves_maa_per_realm_size = {}
+    two_maa_per_realm_size = {}
+    three_maa_per_realm_size = {}
+    four_maa_per_realm_size = {}
+    five_maa_per_realm_size = {}
+    ten_maa_per_realm_size = {}
+}
+
+additional_maa_cap_adventurers = {
+	categories = { difficulty dynamic_maa_limit }
+	default = adventurers_five_additional_maa_cap
+	adventurers_no_additional_maa_cap = {}
+	adventurers_one_additional_maa_cap = {}
+	adventurers_two_additional_maa_cap = {}
+	adventurers_three_additional_maa_cap = {}
+	adventurers_four_additional_maa_cap = {}
+	adventurers_five_additional_maa_cap = {}
+	adventurers_ten_additional_maa_cap = {}
+	adventurers_fifteen_additional_maa_cap = {}
+	adventurers_twenty_additional_maa_cap = {}
+	adventurers_twenty_five_additional_maa_cap = {}
+	adventurers_thirty_additional_maa_cap = {}
+	adventurers_forty_additional_maa_cap = {}
+	adventurers_fifty_additional_maa_cap = {}
+	adventurers_sixty_additional_maa_cap = {}
+	adventurers_seventy_additional_maa_cap = {}
+	adventurers_eighty_additional_maa_cap = {}
+	adventurers_ninety_additional_maa_cap = {}
+	adventurers_one_hundred_additional_maa_cap = {}
+}
+
+additional_maa_cap_from_domicile_buildings = {
+	categories = { difficulty dynamic_maa_limit }
+	default = eighth_maa_per_domicile_buildings
+	no_maa_per_domicile_buildings = {}
+	hundredth_maa_per_domicile_buildings = {}
+	fiftieth_maa_per_domicile_buildings = {}
+	twenty_fifth_maa_per_domicile_buildings = {}
+	twentieth_maa_per_domicile_buildings = {}
+	sixteenth_maa_per_domicile_buildings = {}
+	tenth_maa_per_domicile_buildings = {}
+	eighth_maa_per_domicile_buildings = {}
+	fifth_maa_per_domicile_buildings = {}
+	quarter_maa_per_domicile_buildings = {}
+	third_maa_per_domicile_buildings = {}
+	half_maa_per_domicile_buildings = {}
+	three_quarters_maa_per_domicile_buildings = {}
+	one_maa_per_domicile_buildings = {}
+	five_quarters_maa_per_domicile_buildings = {}
+	three_halves_maa_per_domicile_buildings = {}
+	two_maa_per_domicile_buildings = {}
+	three_maa_per_domicile_buildings = {}
+	four_maa_per_domicile_buildings = {}
+	five_maa_per_domicile_buildings = {}
+	ten_maa_per_domicile_buildings = {}
+}
+
+additional_maa_limit = {
+	categories = { difficulty dynamic_maa_limit }
+	default = no_additional_maa_limit
+	four_fewer_maa_limit = { apply_modifier = all:fewer_maa_limit_four }
+	three_fewer_maa_limit = { apply_modifier = all:fewer_maa_limit_three }
+	two_fewer_maa_limit = { apply_modifier = all:fewer_maa_limit_two }
+	one_fewer_maa_limit = { apply_modifier = all:fewer_maa_limit_one }
+	no_additional_maa_limit = {}
+	one_additional_maa_limit = { apply_modifier = all:additional_maa_limit_one }
+	two_additional_maa_limit = { apply_modifier = all:additional_maa_limit_two }
+	three_additional_maa_limit = { apply_modifier = all:additional_maa_limit_three }
+	four_additional_maa_limit = { apply_modifier = all:additional_maa_limit_four }
+	five_additional_maa_limit = { apply_modifier = all:additional_maa_limit_five }
+	ten_additional_maa_limit = { apply_modifier = all:additional_maa_limit_ten }
+	fifteen_additional_maa_limit = { apply_modifier = all:additional_maa_limit_fifteen }
+	twenty_additional_maa_limit = { apply_modifier = all:additional_maa_limit_twenty }
+	twenty_five_additional_maa_limit = { apply_modifier = all:additional_maa_limit_twenty_five }
+	fifty_additional_maa_limit = { apply_modifier = all:additional_maa_limit_fifty }
+	one_hundred_additional_maa_limit = { apply_modifier = all:additional_maa_limit_one_hundred }
+}
+
+additional_title_maa_limit = {
+	categories = { difficulty dynamic_maa_limit }
+	default = five_additional_title_maa_limit
+	four_fewer_title_maa_limit = { apply_modifier = all:fewer_title_maa_limit_four }
+	three_fewer_title_maa_limit = { apply_modifier = all:fewer_title_maa_limit_three }
+	two_fewer_title_maa_limit = { apply_modifier = all:fewer_title_maa_limit_two }
+	one_fewer_title_maa_limit = { apply_modifier = all:fewer_title_maa_limit_one }
+	no_additional_title_maa_limit = {}
+	one_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_one }
+	two_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_two }
+	three_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_three }
+	four_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_four }
+	five_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_five }
+	ten_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_ten }
+	fifteen_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_fifteen }
+	twenty_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_twenty }
+	twenty_five_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_twenty_five }
+	fifty_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_fifty }
+	one_hundred_additional_title_maa_limit = { apply_modifier = all:additional_title_maa_limit_one_hundred }
+}

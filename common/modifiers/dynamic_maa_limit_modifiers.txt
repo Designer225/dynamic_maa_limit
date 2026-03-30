@@ -1,0 +1,204 @@
+﻿
+# for non-admin realms, who don't benefit from title MAAs
+additional_maa_cap_from_domain_size = {
+	icon = martial_positive
+	men_at_arms_cap = 1
+	scale = {
+		value = additional_maa_cap_from_domain_size
+	}
+}
+
+# ditto
+additional_maa_cap_from_realm_size = {
+	icon = martial_positive
+	men_at_arms_cap = 1
+	scale = {
+		value = additional_maa_cap_from_realm_size
+	}
+}
+
+# for admin realms, who benefit from title MAAs
+additional_title_maa_cap_from_domain_size = {
+	icon = martial_positive
+	men_at_arms_title_cap = 1
+	scale = {
+		value = additional_maa_cap_from_domain_size
+	}
+}
+
+# ditto
+additional_title_maa_cap_from_realm_size = {
+	icon = martial_positive
+	men_at_arms_title_cap = 1
+	scale = {
+		value = additional_maa_cap_from_realm_size
+	}
+}
+
+# for adventurers, landless characters, and admin rulers without domiciles (not renamed for backwards compatibility reasons)
+additional_maa_cap_adventurers = {
+	icon = martial_positive
+	men_at_arms_cap = 1
+	scale = {
+		value = additional_maa_cap_adventurers
+	}
+}
+
+# for adventurers, nomads, and admin rulers with domiciles (note the last two does include landless)
+additional_maa_cap_from_domicile_buildings = {
+	icon = martial_positive
+	men_at_arms_cap = 1
+	scale = {
+		value = additional_maa_cap_from_domicile_buildings
+	}
+}
+
+fewer_maa_limit_four = {
+	icon = martial_negative
+	men_at_arms_limit = -4
+}
+
+fewer_maa_limit_three = {
+	icon = martial_negative
+	men_at_arms_limit = -3
+}
+
+fewer_maa_limit_two = {
+	icon = martial_negative
+	men_at_arms_limit = -2
+}
+
+fewer_maa_limit_one = {
+	icon = martial_negative
+	men_at_arms_limit = -1
+}
+
+additional_maa_limit_one = {
+	icon = martial_positive
+	men_at_arms_limit = 1
+}
+
+additional_maa_limit_two = {
+	icon = martial_positive
+	men_at_arms_limit = 2
+}
+
+additional_maa_limit_three = {
+	icon = martial_positive
+	men_at_arms_limit = 3
+}
+
+additional_maa_limit_four = {
+	icon = martial_positive
+	men_at_arms_limit = 4
+}
+
+additional_maa_limit_five = {
+	icon = martial_positive
+	men_at_arms_limit = 5
+}
+
+additional_maa_limit_ten = {
+	icon = martial_positive
+	men_at_arms_limit = 10
+}
+
+additional_maa_limit_fifteen = {
+	icon = martial_positive
+	men_at_arms_limit = 15
+}
+
+additional_maa_limit_twenty = {
+	icon = martial_positive
+	men_at_arms_limit = 20
+}
+
+additional_maa_limit_twenty_five = {
+	icon = martial_positive
+	men_at_arms_limit = 25
+}
+
+additional_maa_limit_fifty = {
+	icon = martial_positive
+	men_at_arms_limit = 50
+}
+
+additional_maa_limit_one_hundred = {
+	icon = martial_positive
+	men_at_arms_limit = 100
+}
+
+fewer_title_maa_limit_four = {
+	icon = martial_negative
+	men_at_arms_title_limit = -4
+}
+
+fewer_title_maa_limit_three = {
+	icon = martial_negative
+	men_at_arms_title_limit = -3
+}
+
+fewer_title_maa_limit_two = {
+	icon = martial_negative
+	men_at_arms_title_limit = -2
+}
+
+fewer_title_maa_limit_one = {
+	icon = martial_negative
+	men_at_arms_title_limit = -1
+}
+
+additional_title_maa_limit_one = {
+	icon = martial_positive
+	men_at_arms_title_limit = 1
+}
+
+additional_title_maa_limit_two = {
+	icon = martial_positive
+	men_at_arms_title_limit = 2
+}
+
+additional_title_maa_limit_three = {
+	icon = martial_positive
+	men_at_arms_title_limit = 3
+}
+
+additional_title_maa_limit_four = {
+	icon = martial_positive
+	men_at_arms_title_limit = 4
+}
+
+additional_title_maa_limit_five = {
+	icon = martial_positive
+	men_at_arms_title_limit = 5
+}
+
+additional_title_maa_limit_ten = {
+	icon = martial_positive
+	men_at_arms_title_limit = 10
+}
+
+additional_title_maa_limit_fifteen = {
+	icon = martial_positive
+	men_at_arms_title_limit = 15
+}
+
+additional_title_maa_limit_twenty = {
+	icon = martial_positive
+	men_at_arms_title_limit = 20
+}
+
+additional_title_maa_limit_twenty_five = {
+	icon = martial_positive
+	men_at_arms_title_limit = 25
+}
+
+additional_title_maa_limit_fifty = {
+	icon = martial_positive
+	men_at_arms_title_limit = 50
+}
+
+additional_title_maa_limit_one_hundred = {
+	icon = martial_positive
+	men_at_arms_title_limit = 100
+}

@@ -1,0 +1,187 @@
+﻿
+# title updates need to propagate upwards in the vassal hierarchy
+# In practice, most of the time titles aren't being transferred from one top realm to another.
+# When they are though, propagating the effects upwards will be necessary.
+on_title_destroyed = {
+	on_actions = {
+		on_dynamic_maa_limit_update_propagate_upwards
+	}
+}
+
+on_title_gain = {
+	on_actions = {
+		on_dynamic_maa_limit_update_propagate_upwards
+	}
+}
+
+on_title_gain_inheritance = {
+	on_actions = {
+		on_dynamic_maa_limit_update_propagate_upwards
+	}
+}
+
+on_title_gain_usurpation = {
+	on_actions = {
+		on_dynamic_maa_limit_update_propagate_upwards
+	}
+}
+
+on_title_lost = {
+	on_actions = {
+		on_dynamic_maa_limit_update_propagate_upwards
+	}
+}
+
+on_rank_up = {
+	on_actions = {
+		on_dynamic_maa_limit_update_propagate_upwards
+	}
+}
+
+on_rank_down = {
+	on_actions = {
+		on_dynamic_maa_limit_update_propagate_upwards
+	}
+}
+
+on_primary_title_change = {
+	on_actions = {
+		on_dynamic_maa_limit_update_propagate_upwards
+	}
+}
+
+# no scope, used to update everyone so don't need propagation
+on_game_start = {
+	on_actions = {
+		on_dynamic_maa_limit_update_no_scope
+	}
+}
+
+# only playable characters can have MAA regiments so this is enough
+# also needs no propagation
+on_yearly_playable = {
+	on_actions = {
+		on_dynamic_maa_limit_update
+	}
+}
+
+# this scopes to everyone in order to update everyone
+on_dynamic_maa_limit_update_no_scope = {
+	effect = {
+		every_ruler = {
+			trigger_event = {
+				on_action = on_dynamic_maa_limit_update
+			}
+		}
+	}
+}
+
+# updates only one character
+on_dynamic_maa_limit_update = {
+	## intent
+	# 	- Landed rulers get more regiment cap from lands. Nuff said.
+	#		- Specifically, more from each holding than from each county. Significantly so.
+	#		- Idea is to make larger realms more powerful without being overly so
+	#	- Unlanded rulers obviously can't get regiment cap from land, and need to source it elsewhere
+	#		- Unlanded rulers have domiciles and can instead get regiment cap from each building in the domicile
+	#	- Gotchas: recent landless government types
+	#		- Administrative realms (admin, meritocratic (khanate), celestial, ritsuryo), Soryo realms, and Nomads
+	#			- Landed rulers can have domiciles (as house leaders) and not (as non-cadet relatives of house leaders)
+	#				- Landed house leaders will get modifier from domiciles only
+	#				- Landed domicile-less will get the adventurer modifier only
+	#				- This is on top of the land modifiers (they ARE landed after all)
+	#			- Unlanded rulers always have domiciles, but can become landed by various means
+	#				- Will get both adventurer and domicile modifiers
+	#		- Adventurers
+	#			- Always unlanded, always have domiciles
+	#			- Will get both adventurer and domicile modifiers
+	effect = {
+		remove_all_character_modifier_instances = additional_maa_cap_from_domain_size
+		remove_all_character_modifier_instances = additional_maa_cap_from_realm_size
+		remove_all_character_modifier_instances = additional_title_maa_cap_from_domain_size
+		remove_all_character_modifier_instances = additional_title_maa_cap_from_realm_size
+		remove_all_character_modifier_instances = additional_maa_cap_adventurers
+		remove_all_character_modifier_instances = additional_maa_cap_from_domicile_buildings
+		if = { # landed admin types, feudal, clan, tribal, landed nomads, mandala, wanua, landed soryo
+			limit = { is_landed = yes }
+			if = {
+				limit = { government_allows = administrative }
+				if = {
+					limit = { NOT = { has_game_rule = no_maa_per_domain_size } }
+					add_character_modifier = additional_title_maa_cap_from_domain_size
+				}
+				if = {
+					limit = { NOT = { has_game_rule = no_maa_per_realm_size } }
+					add_character_modifier = additional_title_maa_cap_from_realm_size
+				}
+			}
+			else = {
+				if = {
+					limit = { NOT = { has_game_rule = no_maa_per_domain_size } }
+					add_character_modifier = additional_maa_cap_from_domain_size
+				}
+				if = {
+					limit = { NOT = { has_game_rule = no_maa_per_realm_size } }
+					add_character_modifier = additional_maa_cap_from_realm_size
+				}
+			}
+			if = { # landed admin types (administrative, meritocratic (khanate), celestial, ritsuryo), landed nomads, landed soryo
+				limit = {
+					OR = {
+						government_allows = administrative
+						is_nomad = yes
+						government_has_flag = government_is_japan_feudal
+					}
+				}
+				if = { # with domiciles (usually house leaders)
+					limit = { has_domicile = yes }
+					if = {
+						limit = { NOT = { has_game_rule = no_maa_per_domicile_buildings } }
+						add_character_modifier = additional_maa_cap_from_domicile_buildings
+					}
+				}
+				else = { # without domiciles (non-cadet relatives of house leaders)
+					if = {
+						limit = { NOT = { has_game_rule = adventurers_no_additional_maa_cap } }
+						add_character_modifier = additional_maa_cap_adventurers
+					}
+				}
+			}
+		}
+		else = { # unlanded admin types, nomads, soryo, and adventurers
+			if = {
+				limit = { NOT = { has_game_rule = adventurers_no_additional_maa_cap } }
+				add_character_modifier = additional_maa_cap_adventurers
+			}
+			if = {
+				limit = { has_domicile = yes }
+				if = {
+					limit = { NOT = { has_game_rule = no_maa_per_domicile_buildings } }
+					add_character_modifier = additional_maa_cap_from_domicile_buildings
+				}
+			}
+		}
+	}
+}
+
+# updates a character and all of their lieges, if any
+on_dynamic_maa_limit_update_propagate_upwards = {
+	effect = {
+		# update current character
+		trigger_event = {
+			on_action = on_dynamic_maa_limit_update
+		}
+		# now update the immediate liege, if any, until there is no more liege
+		if = {
+			limit = {
+				exists = liege
+				liege != this
+			}
+			liege = {
+				trigger_event = {
+					on_action = on_dynamic_maa_limit_update_propagate_upwards
+				}
+			}
+		}
+	}
+}

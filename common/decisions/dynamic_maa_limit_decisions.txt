@@ -1,0 +1,73 @@
+﻿
+immediate_update_maa_limit_decision = {
+	decision_group_type = debug
+	
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ai = no
+	}
+
+	effect = {
+		every_ruler = {
+			trigger_event = {
+				on_action = on_dynamic_maa_limit_update
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 0 # never takes this decision, which is more of a debug decision
+	}
+}
+
+flatten_excess_maa_subregiments_decision = {
+	decision_group_type = debug
+	
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ai = no
+	}
+
+	effect = {
+		hidden_effect = {
+			every_ruler = {
+				every_maa_regiment = {
+					if = {
+						# since there is no easy way of downgrading to the correct size, let's downgrade until I can upgrade, then upgrade
+						# logic being that if it's possible to upgrade, then I am 1 below the max cap
+						# also make sure the regiment isn't already upgradable since such regiments are in fact below cap to begin with
+						limit = {
+							can_upgrade_maa = no
+						}
+						while = {
+							limit = {
+								can_upgrade_maa = no
+							}
+							change_maa_regiment_size = {
+								size = -1
+							}
+						}
+						change_maa_regiment_size = {
+							size = 1
+							reinforce = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 0 # never takes this decision, which is more of a debug decision
+	}
+}
