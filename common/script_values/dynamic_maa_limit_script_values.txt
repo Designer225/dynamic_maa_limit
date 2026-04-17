@@ -1,7 +1,11 @@
 ﻿
-additional_maa_cap_from_domain_size = {
-	value = domain_size_excluding_grace_period
+additional_maa_cap_from_domain_size_mult = {
+	value = 1
 	if = {
+		limit = { has_game_rule = no_maa_per_domain_size }
+		multiply = 0
+	}
+	else_if = {
 		limit = { has_game_rule = hundredth_maa_per_domain_size }
 		divide = 100
 	}
@@ -16,10 +20,6 @@ additional_maa_cap_from_domain_size = {
 	else_if = {
 		limit = { has_game_rule = twentieth_maa_per_domain_size }
 		divide = 20
-	}
-	else_if = {
-		limit = { has_game_rule = sixteenth_maa_per_domain_size }
-		divide = 16
 	}
 	else_if = {
 		limit = { has_game_rule = tenth_maa_per_domain_size }
@@ -46,20 +46,8 @@ additional_maa_cap_from_domain_size = {
 		divide = 2
 	}
 	else_if = {
-		limit = { has_game_rule = three_quarters_maa_per_domain_size }
-		multiply = 0.75
-	}
-	else_if = {
 		limit = { has_game_rule = one_maa_per_domain_size }
 		multiply = 1
-	}
-	else_if = {
-		limit = { has_game_rule = five_quarters_maa_per_domain_size }
-		multiply = 1.25
-	}
-	else_if = {
-		limit = { has_game_rule = three_halves_maa_per_domain_size }
-		multiply = 1.5
 	}
 	else_if = {
 		limit = { has_game_rule = two_maa_per_domain_size }
@@ -81,12 +69,41 @@ additional_maa_cap_from_domain_size = {
 		limit = { has_game_rule = ten_maa_per_domain_size }
 		multiply = 10
 	}
+}
+
+additional_maa_cap_from_domain_size = {
+	value = domain_size_excluding_grace_period
+	multiply = global_var:additional_maa_cap_from_domain_size_multiplier
 	floor = yes
 }
 
-additional_maa_cap_from_realm_size = {
-	value = sub_realm_size
+additional_maa_cap_from_realm_size_mult = {
+	value = 1
 	if = {
+		limit = { has_game_rule = no_maa_per_realm_size }
+		multiply = 0
+	}
+	else_if = {
+		limit = { has_game_rule = thousandth_maa_per_realm_size }
+		divide = 1000
+	}
+	else_if = {
+		limit = { has_game_rule = five_hundredth_maa_per_realm_size }
+		divide = 500
+	}
+	else_if = {
+		limit = { has_game_rule = two_hundred_fiftieth_maa_per_realm_size }
+		divide = 250
+	}
+	else_if = {
+		limit = { has_game_rule = two_hundredth_maa_per_realm_size }
+		divide = 200
+	}
+	else_if = {
+		limit = { has_game_rule = one_hundred_twenty_fifth_maa_per_realm_size }
+		divide = 125
+	}
+	else_if = {
 		limit = { has_game_rule = hundredth_maa_per_realm_size }
 		divide = 100
 	}
@@ -101,10 +118,6 @@ additional_maa_cap_from_realm_size = {
 	else_if = {
 		limit = { has_game_rule = twentieth_maa_per_realm_size }
 		divide = 20
-	}
-	else_if = {
-		limit = { has_game_rule = sixteenth_maa_per_realm_size }
-		divide = 16
 	}
 	else_if = {
 		limit = { has_game_rule = tenth_maa_per_realm_size }
@@ -131,20 +144,8 @@ additional_maa_cap_from_realm_size = {
 		divide = 2
 	}
 	else_if = {
-		limit = { has_game_rule = three_quarters_maa_per_realm_size }
-		multiply = 0.75
-	}
-	else_if = {
 		limit = { has_game_rule = one_maa_per_realm_size }
 		multiply = 1
-	}
-	else_if = {
-		limit = { has_game_rule = five_quarters_maa_per_realm_size }
-		multiply = 1.25
-	}
-	else_if = {
-		limit = { has_game_rule = three_halves_maa_per_realm_size }
-		multiply = 1.5
 	}
 	else_if = {
 		limit = { has_game_rule = two_maa_per_realm_size }
@@ -166,10 +167,130 @@ additional_maa_cap_from_realm_size = {
 	    limit = { has_game_rule = ten_maa_per_realm_size }
 	    multiply = 10
 	}
+}
+
+additional_maa_cap_from_realm_size_soft_cap = {
+	value = 0
+	if = {
+		limit = { has_game_rule = one_maa_realm_size_soft_cap }
+		value = 1
+	}
+	else_if = {
+		limit = { has_game_rule = two_maa_realm_size_soft_cap }
+		value = 2
+	}
+	else_if = {
+		limit = { has_game_rule = three_maa_realm_size_soft_cap }
+		value = 3
+	}
+	else_if = {
+		limit = { has_game_rule = four_maa_realm_size_soft_cap }
+		value = 4
+	}
+	else_if = {
+		limit = { has_game_rule = five_maa_realm_size_soft_cap }
+		value = 5
+	}
+	else_if = {
+		limit = { has_game_rule = six_maa_realm_size_soft_cap }
+		value = 6
+	}
+	else_if = {
+		limit = { has_game_rule = seven_maa_realm_size_soft_cap }
+		value = 7
+	}
+	else_if = {
+		limit = { has_game_rule = eight_maa_relam_size_soft_cap }
+		value = 8
+	}
+	else_if = {
+		limit = { has_game_rule = nine_maa_realm_size_soft_cap }
+		value = 9
+	}
+	else_if = {
+		limit = { has_game_rule = ten_maa_realm_size_soft_cap }
+		value = 10
+	}
+	else_if = {
+		limit = { has_game_rule = fifteen_maa_realm_size_soft_cap }
+		value = 15
+	}
+	else_if = {
+		limit = { has_game_rule = twenty_maa_realm_size_soft_cap }
+		value = 20
+	}
+	else_if = {
+		limit = { has_game_rule = twenty_five_maa_realm_size_soft_cap }
+		value = 25
+	}
+	else_if = {
+		limit = { has_game_rule = fifty_maa_realm_size_soft_cap }
+		value = 50
+	}
+}
+
+additional_maa_cap_from_realm_size_over_soft_cap_multiplier = {
+	value = 1
+	if = {
+		limit = { has_game_rule = zero_over_soft_cap_multiplier }
+		multiply = 0
+	}
+	else_if = {
+		limit = { has_game_rule = hundredth_over_soft_cap_multiplier }
+		divide = 100
+	}
+	else_if = {
+		limit = { has_game_rule = fiftieth_over_soft_cap_multiplier }
+		divide = 50
+	}
+	else_if = {
+		limit = { has_game_rule = twenty_fifth_over_soft_cap_multiplier }
+		divide = 25
+	}
+	else_if = {
+		limit = { has_game_rule = twentieth_over_soft_cap_multiplier }
+		divide = 20
+	}
+	else_if = {
+		limit = { has_game_rule = tenth_over_soft_cap_multiplier }
+		divide = 10
+	}
+	else_if = {
+		limit = { has_game_rule = eighth_over_soft_cap_multiplier }
+		divide = 8
+	}
+	else_if = {
+		limit = { has_game_rule = fifth_over_Soft_cap_multiplier }
+		divide = 5
+	}
+	else_if = {
+		limit = { has_game_rule = quarter_over_soft_cap_multiplier }
+		divide = 4
+	}
+	else_if = {
+		limit = { has_game_rule = third_over_soft_cap_multiplier }
+		divide = 3
+	}
+	else_if = {
+		limit = { has_game_rule = half_over_soft_cap_multiplier }
+		divide = 2
+	}
+}
+
+additional_maa_cap_from_realm_size = {
+	value = sub_realm_size
+	multiply = global_var:additional_maa_cap_from_realm_size_multiplier
+	save_temporary_value_as = temp_maa_add
+	if = {
+		limit = { scope:temp_maa_add > global_var:additional_maa_cap_from_realm_size_soft_cap_value }
+		subtract = global_var:additional_maa_cap_from_realm_size_soft_cap_value
+		multiply = global_var:additional_maa_cap_from_realm_size_over_soft_cap_mult
+		add = global_var:additional_maa_cap_from_realm_size_soft_cap_value
+	}
 	floor = yes
 }
 
-additional_maa_cap_adventurers = {
+additional_maa_cap_adventurers_add = {
 	value = 0
 	if = {
 		limit = { has_game_rule = adventurers_one_additional_maa_cap }
@@ -241,9 +362,13 @@ additional_maa_cap_adventurers = {
 	}
 }
 
-additional_maa_cap_from_domicile_buildings = {
-	value = domicile.num_domicile_buildings
+additional_maa_cap_from_domicile_buildings_mult = {
+	value = 1
 	if = {
+		limit = { has_game_rule = no_maa_per_domicile_buildings }
+		multiply = 0
+	}
+	else_if = {
 		limit = { has_game_rule = hundredth_maa_per_domicile_buildings }
 		divide = 100
 	}
@@ -258,10 +383,6 @@ additional_maa_cap_from_domicile_buildings = {
 	else_if = {
 		limit = { has_game_rule = twentieth_maa_per_domicile_buildings }
 		divide = 20
-	}
-	else_if = {
-		limit = { has_game_rule = sixteenth_maa_per_domicile_buildings }
-		divide = 16
 	}
 	else_if = {
 		limit = { has_game_rule = tenth_maa_per_domicile_buildings }
@@ -288,20 +409,8 @@ additional_maa_cap_from_domicile_buildings = {
 		divide = 2
 	}
 	else_if = {
-		limit = { has_game_rule = three_quarters_maa_per_domicile_buildings }
-		multiply = 0.75
-	}
-	else_if = {
 		limit = { has_game_rule = one_maa_per_domicile_buildings }
 		multiply = 1
-	}
-	else_if = {
-		limit = { has_game_rule = five_quarters_maa_per_domicile_buildings }
-		multiply = 1.25
-	}
-	else_if = {
-		limit = { has_game_rule = three_halves_maa_per_domicile_buildings }
-		multiply = 1.5
 	}
 	else_if = {
 		limit = { has_game_rule = two_maa_per_domicile_buildings }
@@ -323,5 +432,89 @@ additional_maa_cap_from_domicile_buildings = {
 		limit = { has_game_rule = ten_maa_per_domicile_buildings }
 		multiply = 10
 	}
+}
+
+additional_maa_cap_from_domicile_buildings = {
+	value = domicile.num_domicile_buildings
+	multiply = global_var:additional_maa_cap_from_domicile_buildings_multiplier
+	floor = yes
+}
+
+
+additional_maa_cap_from_adventurer_camp_buildings_mult = {
+	value = 1
+	if = {
+		limit = { has_game_rule = no_maa_per_adventurer_buildings }
+		multiply = 0
+	}
+	else_if = {
+		limit = { has_game_rule = hundredth_maa_per_adventurer_buildings }
+		divide = 100
+	}
+	else_if = {
+		limit = { has_game_rule = fiftieth_maa_per_adventurer_buildings }
+		divide = 50
+	}
+	else_if = {
+		limit = { has_game_rule = twenty_fifth_maa_per_adventurer_buildings }
+		divide = 25
+	}
+	else_if = {
+		limit = { has_game_rule = twentieth_maa_per_adventurer_buildings }
+		divide = 20
+	}
+	else_if = {
+		limit = { has_game_rule = tenth_maa_per_adventurer_buildings }
+		divide = 10
+	}
+	else_if = {
+		limit = { has_game_rule = eighth_maa_per_adventurer_buildings }
+		divide = 8
+	}
+	else_if = {
+		limit = { has_game_rule = fifth_maa_per_adventurer_buildings }
+		divide = 5
+	}
+	else_if = {
+		limit = { has_game_rule = quarter_maa_per_adventurer_buildings }
+		divide = 4
+	}
+	else_if = {
+		limit = { has_game_rule = third_maa_per_adventurer_buildings }
+		divide = 3
+	}
+	else_if = {
+		limit = { has_game_rule = half_maa_per_adventurer_buildings }
+		divide = 2
+	}
+	else_if = {
+		limit = { has_game_rule = one_maa_per_adventurer_buildings }
+		multiply = 1
+	}
+	else_if = {
+		limit = { has_game_rule = two_maa_per_adventurer_buildings }
+		multiply = 2
+	}
+	else_if = {
+		limit = { has_game_rule = three_maa_per_adventurer_buildings }
+		multiply = 3
+	}
+	else_if = {
+		limit = { has_game_rule = four_maa_per_adventurer_buildings }
+		multiply = 4
+	}
+	else_if = {
+		limit = { has_game_rule = five_maa_per_adventurer_buildings }
+		multiply = 5
+	}
+	else_if = {
+		limit = { has_game_rule = ten_maa_per_adventurer_buildings }
+		multiply = 10
+	}
+}
+
+additional_maa_cap_from_adventurer_camp_buildings = {
+	value = domicile.num_domicile_buildings
+	multiply = global_var:additional_maa_cap_from_adventurer_camp_buildings_multiplier
 	floor = yes
 }

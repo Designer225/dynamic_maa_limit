@@ -13,6 +13,9 @@ immediate_update_maa_limit_decision = {
 	}
 
 	effect = {
+		trigger_event = {
+			on_action = dynamic_maa_limit_yearly_global_pulse
+		}
 		every_ruler = {
 			trigger_event = {
 				on_action = on_dynamic_maa_limit_update

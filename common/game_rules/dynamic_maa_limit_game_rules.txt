@@ -1,23 +1,19 @@
 ﻿
 additional_maa_cap_from_domain_size = {
-	categories = { difficulty dynamic_maa_limit }
+	categories = { tweaks dynamic_maa_limit }
 	default = no_maa_per_domain_size
 	no_maa_per_domain_size = {}
 	hundredth_maa_per_domain_size = {}
 	fiftieth_maa_per_domain_size = {}
 	twenty_fifth_maa_per_domain_size = {}
 	twentieth_maa_per_domain_size = {}
-	sixteenth_maa_per_domain_size = {}
 	tenth_maa_per_domain_size = {}
 	eighth_maa_per_domain_size = {}
 	fifth_maa_per_domain_size = {}
 	quarter_maa_per_domain_size = {}
 	third_maa_per_domain_size = {}
 	half_maa_per_domain_size = {}
-	three_quarters_maa_per_domain_size = {}
 	one_maa_per_domain_size = {}
-	five_quarters_maa_per_domain_size = {}
-	three_halves_maa_per_domain_size = {}
 	two_maa_per_domain_size = {}
 	three_maa_per_domain_size = {}
 	four_maa_per_domain_size = {}
@@ -26,24 +22,25 @@ additional_maa_cap_from_domain_size = {
 }
 
 additional_maa_cap_from_realm_size = {
-    categories = { difficulty dynamic_maa_limit }
-    default = twenty_fifth_maa_per_realm_size
+    categories = { tweaks dynamic_maa_limit }
+    default = no_maa_per_realm_size
     no_maa_per_realm_size = {}
+	thousandth_maa_per_realm_size = {}
+	five_hundredth_maa_per_realm_size = {}
+	two_hundred_fiftieth_maa_per_realm_size = {}
+	two_hundredth_maa_per_realm_size = {}
+	one_hundred_twenty_fifth_maa_per_realm_size = {}
     hundredth_maa_per_realm_size = {}
     fiftieth_maa_per_realm_size = {}
 	twenty_fifth_maa_per_realm_size = {}
     twentieth_maa_per_realm_size = {}
-	sixteenth_maa_per_realm_size = {}
     tenth_maa_per_realm_size = {}
 	eighth_maa_per_realm_size = {}
     fifth_maa_per_realm_size = {}
     quarter_maa_per_realm_size = {}
     third_maa_per_realm_size = {}
     half_maa_per_realm_size = {}
-	three_quarters_maa_per_realm_size = {}
     one_maa_per_realm_size = {}
-	five_quarters_maa_per_realm_size = {}
-	three_halves_maa_per_realm_size = {}
     two_maa_per_realm_size = {}
     three_maa_per_realm_size = {}
     four_maa_per_realm_size = {}
@@ -51,9 +48,46 @@ additional_maa_cap_from_realm_size = {
     ten_maa_per_realm_size = {}
 }
 
+additional_maa_cap_from_realm_size_soft_cap = {
+	categories = { tweaks dynamic_maa_limit }
+	default = zero_maa_realm_size_soft_cap
+	zero_maa_realm_size_soft_cap = {}
+	one_maa_realm_size_soft_cap = {}
+	two_maa_realm_size_soft_cap = {}
+	three_maa_realm_size_soft_cap = {}
+	four_maa_realm_size_soft_cap = {}
+	five_maa_realm_size_soft_cap = {}
+	six_maa_realm_size_soft_cap = {}
+	seven_maa_realm_size_soft_cap = {}
+	eight_maa_relam_size_soft_cap = {}
+	nine_maa_realm_size_soft_cap = {}
+	ten_maa_realm_size_soft_cap = {}
+	fifteen_maa_realm_size_soft_cap = {}
+	twenty_maa_realm_size_soft_cap = {}
+	twenty_five_maa_realm_size_soft_cap = {}
+	fifty_maa_realm_size_soft_cap = {}
+}
+
+additional_maa_cap_from_realm_size_over_soft_cap_multiplier = {
+	categories = { tweaks dynamic_maa_limit }
+	default = zero_over_soft_cap_multiplier
+	zero_over_soft_cap_multiplier = {}
+	hundredth_over_soft_cap_multiplier = {}
+	fiftieth_over_soft_cap_multiplier = {}
+	twenty_fifth_over_soft_cap_multiplier = {}
+	twentieth_over_soft_cap_multiplier = {}
+	tenth_over_soft_cap_multiplier = {}
+	eighth_over_soft_cap_multiplier = {}
+	fifth_over_Soft_cap_multiplier = {}
+	quarter_over_soft_cap_multiplier = {}
+	third_over_soft_cap_multiplier = {}
+	half_over_soft_cap_multiplier = {}
+	one_over_soft_cap_multiplier = {}
+}
+
 additional_maa_cap_adventurers = {
-	categories = { difficulty dynamic_maa_limit }
-	default = adventurers_five_additional_maa_cap
+	categories = { tweaks dynamic_maa_limit }
+	default = adventurers_no_additional_maa_cap
 	adventurers_no_additional_maa_cap = {}
 	adventurers_one_additional_maa_cap = {}
 	adventurers_two_additional_maa_cap = {}
@@ -75,24 +109,20 @@ additional_maa_cap_adventurers = {
 }
 
 additional_maa_cap_from_domicile_buildings = {
-	categories = { difficulty dynamic_maa_limit }
-	default = eighth_maa_per_domicile_buildings
+	categories = { tweaks dynamic_maa_limit }
+	default = no_maa_per_domicile_buildings
 	no_maa_per_domicile_buildings = {}
 	hundredth_maa_per_domicile_buildings = {}
 	fiftieth_maa_per_domicile_buildings = {}
 	twenty_fifth_maa_per_domicile_buildings = {}
 	twentieth_maa_per_domicile_buildings = {}
-	sixteenth_maa_per_domicile_buildings = {}
 	tenth_maa_per_domicile_buildings = {}
 	eighth_maa_per_domicile_buildings = {}
 	fifth_maa_per_domicile_buildings = {}
 	quarter_maa_per_domicile_buildings = {}
 	third_maa_per_domicile_buildings = {}
 	half_maa_per_domicile_buildings = {}
-	three_quarters_maa_per_domicile_buildings = {}
 	one_maa_per_domicile_buildings = {}
-	five_quarters_maa_per_domicile_buildings = {}
-	three_halves_maa_per_domicile_buildings = {}
 	two_maa_per_domicile_buildings = {}
 	three_maa_per_domicile_buildings = {}
 	four_maa_per_domicile_buildings = {}
@@ -100,8 +130,30 @@ additional_maa_cap_from_domicile_buildings = {
 	ten_maa_per_domicile_buildings = {}
 }
 
+additional_maa_cap_from_adventurer_buildings = {
+	categories = { tweaks dynamic_maa_limit }
+	default = no_maa_per_adventurer_buildings
+	no_maa_per_adventurer_buildings = {}
+	hundredth_maa_per_adventurer_buildings = {}
+	fiftieth_maa_per_adventurer_buildings = {}
+	twenty_fifth_maa_per_adventurer_buildings = {}
+	twentieth_maa_per_adventurer_buildings = {}
+	tenth_maa_per_adventurer_buildings = {}
+	eighth_maa_per_adventurer_buildings = {}
+	fifth_maa_per_adventurer_buildings = {}
+	quarter_maa_per_adventurer_buildings = {}
+	third_maa_per_adventurer_buildings = {}
+	half_maa_per_adventurer_buildings = {}
+	one_maa_per_adventurer_buildings = {}
+	two_maa_per_adventurer_buildings = {}
+	three_maa_per_adventurer_buildings = {}
+	four_maa_per_adventurer_buildings = {}
+	five_maa_per_adventurer_buildings = {}
+	ten_maa_per_adventurer_buildings = {}
+}
+
 additional_maa_limit = {
-	categories = { difficulty dynamic_maa_limit }
+	categories = { tweaks dynamic_maa_limit }
 	default = no_additional_maa_limit
 	four_fewer_maa_limit = { apply_modifier = all:fewer_maa_limit_four }
 	three_fewer_maa_limit = { apply_modifier = all:fewer_maa_limit_three }
@@ -122,8 +174,8 @@ additional_maa_limit = {
 }
 
 additional_title_maa_limit = {
-	categories = { difficulty dynamic_maa_limit }
-	default = five_additional_title_maa_limit
+	categories = { tweaks dynamic_maa_limit }
+	default = no_additional_title_maa_limit
 	four_fewer_title_maa_limit = { apply_modifier = all:fewer_title_maa_limit_four }
 	three_fewer_title_maa_limit = { apply_modifier = all:fewer_title_maa_limit_three }
 	two_fewer_title_maa_limit = { apply_modifier = all:fewer_title_maa_limit_two }

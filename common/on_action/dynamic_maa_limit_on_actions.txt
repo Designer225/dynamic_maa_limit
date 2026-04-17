@@ -53,6 +53,15 @@ on_primary_title_change = {
 # no scope, used to update everyone so don't need propagation
 on_game_start = {
 	on_actions = {
+		dynamic_maa_limit_yearly_global_pulse
+		on_dynamic_maa_limit_update_no_scope
+	}
+}
+
+# no scope, used to update everyone so don't need propagation
+on_game_start_after_lobby = {
+	on_actions = {
+		dynamic_maa_limit_yearly_global_pulse
 		on_dynamic_maa_limit_update_no_scope
 	}
 }
@@ -76,6 +85,45 @@ on_dynamic_maa_limit_update_no_scope = {
 	}
 }
 
+yearly_global_pulse = {
+	on_actions = {
+		dynamic_maa_limit_yearly_global_pulse
+	}
+}
+
+dynamic_maa_limit_yearly_global_pulse = {
+	effect = {
+		set_global_variable = {
+			name = additional_maa_cap_from_domain_size_multiplier
+			value = additional_maa_cap_from_domain_size_mult
+		}
+		set_global_variable = {
+			name = additional_maa_cap_from_realm_size_multiplier
+			value = additional_maa_cap_from_realm_size_mult
+		}
+		set_global_variable = {
+			name = additional_maa_cap_from_realm_size_soft_cap_value
+			value = additional_maa_cap_from_realm_size_soft_cap
+		}
+		set_global_variable = {
+			name = additional_maa_cap_from_realm_size_over_soft_cap_mult
+			value = additional_maa_cap_from_realm_size_over_soft_cap_multiplier
+		}
+		set_global_variable = {
+			name = additional_maa_cap_adventurers_addend
+			value = additional_maa_cap_adventurers_add
+		}
+		set_global_variable = {
+			name = additional_maa_cap_from_domicile_buildings_multiplier
+			value = additional_maa_cap_from_domicile_buildings_mult
+		}
+		set_global_variable = {
+			name = additional_maa_cap_from_adventurer_camp_buildings_multiplier
+			value = additional_maa_cap_from_adventurer_camp_buildings_mult
+		}
+	}
+}
+
 # updates only one character
 on_dynamic_maa_limit_update = {
 	## intent
@@ -87,14 +135,11 @@ on_dynamic_maa_limit_update = {
 	#	- Gotchas: recent landless government types
 	#		- Administrative realms (admin, meritocratic (khanate), celestial, ritsuryo), Soryo realms, and Nomads
 	#			- Landed rulers can have domiciles (as house leaders) and not (as non-cadet relatives of house leaders)
-	#				- Landed house leaders will get modifier from domiciles only
-	#				- Landed domicile-less will get the adventurer modifier only
+	#				- house leaders will get modifier from domiciles only
+	#				- domicile-less will get the 'adventurer' modifier only ('adventurer' because it only applies to them now)
 	#				- This is on top of the land modifiers (they ARE landed after all)
-	#			- Unlanded rulers always have domiciles, but can become landed by various means
-	#				- Will get both adventurer and domicile modifiers
-	#		- Adventurers
-	#			- Always unlanded, always have domiciles
-	#			- Will get both adventurer and domicile modifiers
+	#					- Note that their land modifiers apply to TITLE MAAs if they have them
+	#						- Admins can have them if they belong to a tier that allows them. It's usually duchy or higher (county in some cases) so it's mostly fine
 	effect = {
 		remove_all_character_modifier_instances = additional_maa_cap_from_domain_size
 		remove_all_character_modifier_instances = additional_maa_cap_from_realm_size
@@ -102,10 +147,11 @@ on_dynamic_maa_limit_update = {
 		remove_all_character_modifier_instances = additional_title_maa_cap_from_realm_size
 		remove_all_character_modifier_instances = additional_maa_cap_adventurers
 		remove_all_character_modifier_instances = additional_maa_cap_from_domicile_buildings
+		remove_all_character_modifier_instances = additional_maa_cap_from_adventurer_buildings
 		if = { # landed admin types, feudal, clan, tribal, landed nomads, mandala, wanua, landed soryo
 			limit = { is_landed = yes }
 			if = {
-				limit = { government_allows = administrative }
+				limit = { government_has_flag = government_has_title_men_at_arms }
 				if = {
 					limit = { NOT = { has_game_rule = no_maa_per_domain_size } }
 					add_character_modifier = additional_title_maa_cap_from_domain_size
@@ -125,40 +171,34 @@ on_dynamic_maa_limit_update = {
 					add_character_modifier = additional_maa_cap_from_realm_size
 				}
 			}
-			if = { # landed admin types (administrative, meritocratic (khanate), celestial, ritsuryo), landed nomads, landed soryo
-				limit = {
-					OR = {
-						government_allows = administrative
-						is_nomad = yes
-						government_has_flag = government_is_japan_feudal
-					}
-				}
-				if = { # with domiciles (usually house leaders)
-					limit = { has_domicile = yes }
-					if = {
-						limit = { NOT = { has_game_rule = no_maa_per_domicile_buildings } }
-						add_character_modifier = additional_maa_cap_from_domicile_buildings
-					}
-				}
-				else = { # without domiciles (non-cadet relatives of house leaders)
-					if = {
-						limit = { NOT = { has_game_rule = adventurers_no_additional_maa_cap } }
-						add_character_modifier = additional_maa_cap_adventurers
-					}
-				}
-			}
 		}
-		else = { # unlanded admin types, nomads, soryo, and adventurers
-			if = {
-				limit = { NOT = { has_game_rule = adventurers_no_additional_maa_cap } }
-				add_character_modifier = additional_maa_cap_adventurers
+
+		if = { # all admin types and soryo
+			limit = {
+				government_has_flag = government_uses_domicile_but_not_adventurer
+				is_nomad = no
 			}
 			if = {
 				limit = { has_domicile = yes }
-				if = {
-					limit = { NOT = { has_game_rule = no_maa_per_domicile_buildings } }
-					add_character_modifier = additional_maa_cap_from_domicile_buildings
+				add_character_modifier = additional_maa_cap_from_domicile_buildings
+			}
+			else = {
+				add_character_modifier = additional_maa_cap_adventurers
+			}
+		}
+		else_if = { # nomads and adventurers
+			limit = {
+				OR = {
+					is_landless_adventurer = yes
+					is_nomad = yes
 				}
+			}
+			if = {
+				limit = { has_domicile = yes }
+				add_character_modifier = additional_maa_cap_from_adventurer_buildings
+			}
+			else = {
+				add_character_modifier = additional_maa_cap_adventurers
 			}
 		}
 	}

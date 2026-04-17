@@ -35,21 +35,30 @@ additional_title_maa_cap_from_realm_size = {
 	}
 }
 
-# for adventurers, landless characters, and admin rulers without domiciles (not renamed for backwards compatibility reasons)
+# for domicile-less governors (not renamed for backwards compatibility reasons)
 additional_maa_cap_adventurers = {
 	icon = martial_positive
 	men_at_arms_cap = 1
 	scale = {
-		value = additional_maa_cap_adventurers
+		value = global_var:additional_maa_cap_adventurers_addend
 	}
 }
 
-# for adventurers, nomads, and admin rulers with domiciles (note the last two does include landless)
+# for soryo, and admin rulers with domiciles (note the last two does include landless)
 additional_maa_cap_from_domicile_buildings = {
 	icon = martial_positive
 	men_at_arms_cap = 1
 	scale = {
 		value = additional_maa_cap_from_domicile_buildings
+	}
+}
+
+# for adventurers and nomads
+additional_maa_cap_from_adventurer_buildings = {
+	icon = martial_positive
+	men_at_arms_cap = 1
+	scale = {
+		value = additional_maa_cap_from_adventurer_camp_buildings
 	}
 }
 
